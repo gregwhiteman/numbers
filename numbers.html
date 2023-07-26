@@ -259,7 +259,7 @@
                     if (week === 0 && dayOfWeek < firstDayOfWeek) {
                         calendar += '<td>&nbsp;</td>';
                     } else if (day <= daysInMonth) {
-                        calendar += '<td>' + day + ' ' + '('+attitude+','+ processSumFull(day) + ')'+processCompatability(attitude, processSumFull(day)) + '</td>';//convertCompatability(processCompatability(attitude, processSumFull(day))) + '</td>';
+                        calendar += '<td>' + day + ' ' + convertCompatability(processCompatability(attitude, processSumFull(day))) + '</td>';//convertCompatability(processCompatability(attitude, processSumFull(day))) + '</td>';
                         day++;
                     } else {
                         calendar += '<td>&nbsp;</td>';
