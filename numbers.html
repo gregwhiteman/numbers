@@ -74,7 +74,7 @@
             result.innerHTML += "Personal Month: " + personalMonth + "<br>";
             result.innerHTML += "World Compatibility: " + worldYearSum + " Attitude: " + processSum(dayMonthSum) + ": " + convertCompatability(processCompatability(processSum(dayMonthSum), processSum(worldYearSum))) + "<br>";
 
-            var calendar = createCalendar(currentMonth, currentYear, processSum(personalMonth));
+            var calendar = createCalendar(currentMonth, currentYear, processSum(dayMonthYearSum));
             document.getElementById("calendarContainer").innerHTML = calendar;
         }
 
