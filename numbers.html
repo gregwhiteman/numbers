@@ -9,8 +9,60 @@
             left: 40%;
             position: absolute;
         }
+        /* Additional styles for the hour grid */
+        .hour-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 2px;
+            width: 100px;
+            height: 80px;
+        }
+
+        .hour-cell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10px;
+            border: 1px solid #ccc;
+        }
+        .compatibility-2 {
+            background-color: lightgreen;
+        }
+
+        .compatibility-1 {
+            background-color: green;
+        }
+
+        .compatibility-0 {
+            background-color: lightgray;
+        }
+
+        .compatibility--1 {
+            background-color: red;
+        }
+        .hour-number-2 {
+            color: white;
+            background-color: green;
+        }
+
+        .hour-number-1 {
+            color: white;
+            background-color: lightgreen;
+        }
+
+        .hour-number-0 {
+            color: black;
+            background-color: lightgray;
+        }
+
+        .hour-number--1 {
+            color: white;
+            background-color: red;
+        }
     </style>
     <script>
+
         function calculateNumber() {
             var name = document.getElementById("name").value.toUpperCase();
             var date = document.getElementById("date").value;
@@ -74,7 +126,7 @@
             result.innerHTML += "Personal Month: " + personalMonth + "<br>";
             result.innerHTML += "World Compatibility: " + worldYearSum + " Attitude: " + processSum(dayMonthSum) + ": " + convertCompatability(processCompatability(processSum(dayMonthSum), processSum(worldYearSum))) + "<br>";
 
-            var calendar = createCalendar(currentMonth, currentYear, processSum(personalMonth));
+            var calendar = createCalendar(currentMonth, currentYear, processSum(dayMonthYearSum));
             document.getElementById("calendarContainer").innerHTML = calendar;
         }
 
@@ -244,6 +296,25 @@
 
         //Calendar******************************************************************
 
+        // Function to create the hour grid for a day
+        function createHourGrid(attitude) {
+            var grid = '<div class="hour-grid">';
+            for (var i = 1; i < 25; i++) {
+                var hourCompatibility = processCompatability(attitude, processSumFull(i));
+                // Create the CSS class based on the compatibility value
+                var hourClass = 'hour-number-' + hourCompatibility;
+                // Append the hour cell with the appropriate CSS class
+                grid += '<div class="hour-cell ' + hourClass + '">' + i + '</div>';
+
+
+
+
+                //grid += '<div class="hour-cell">' + i + '</div>';
+            }
+            grid += '</div>';
+            return grid;
+        }
+
         // Function to create and populate the calendar for a given month and year
         function createCalendar(month, year, attitude) {
             var daysInMonth = new Date(year, month, 0).getDate();
@@ -259,8 +330,10 @@
                     if (week === 0 && dayOfWeek < firstDayOfWeek) {
                         calendar += '<td>&nbsp;</td>';
                     } else if (day <= daysInMonth) {
-                        calendar += '<td>' + day + ' ' + convertCompatability(processCompatability(attitude, processSumFull(day))) + '</td>';
-                        day++;
+                        var compatibility = processCompatability(attitude, processSumFull(day));
+                        var colorClass = 'compatibility-' + compatibility;
+                        calendar += '<td class="' + colorClass + '"><div>' + day + '</div>' + createHourGrid(attitude) + '</td>';
+                       day++;
                     } else {
                         calendar += '<td>&nbsp;</td>';
                     }
