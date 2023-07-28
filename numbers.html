@@ -126,7 +126,7 @@
             result.innerHTML += "Personal Month: " + personalMonth + "<br>";
             result.innerHTML += "World Compatibility: " + worldYearSum + " Attitude: " + processSum(dayMonthSum) + ": " + convertCompatability(processCompatability(processSum(dayMonthSum), processSum(worldYearSum))) + "<br>";
 
-            var calendar = createCalendar(currentMonth, currentYear, processSum(dayMonthYearSum));
+            var calendar = createCalendar(currentMonth, currentYear, processSum(dayMonthYearSum), personalMonth, convertCompatability(processCompatability(processSum(dayMonthSum), processSum(worldYearSum))));
             document.getElementById("calendarContainer").innerHTML = calendar;
         }
 
@@ -316,12 +316,15 @@
         }
 
         // Function to create and populate the calendar for a given month and year
-        function createCalendar(month, year, attitude) {
+        function createCalendar(month, year, lifePath, personalMonth, worldCompatability) {
             var daysInMonth = new Date(year, month, 0).getDate();
             var firstDayOfWeek = new Date(year, month - 1, 1).getDay();
 
+            var colorMonthClass = 'compatibility-' + processCompatability(lifePath, processSumFull(personalMonth));
+            var colorYearClass = 'compatibility-' + processCompatability(lifePath, processSumFull(personalYear));
+
             var calendar = '<table border="1">';
-            calendar += '<tr><th colspan="7">' + getMonthName(month) + ' ' + year + '</th></tr>';
+            calendar += '<tr><th colspan="7" class="' + colorMonthClass + '">' + getMonthName(month) + ' ' + '<div class="' + colorYearClass + '">'+ year + '</div></th></tr>';
             calendar += '<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
             var day = 1;
             for (var week = 0; week < 6; week++) {
@@ -330,9 +333,9 @@
                     if (week === 0 && dayOfWeek < firstDayOfWeek) {
                         calendar += '<td>&nbsp;</td>';
                     } else if (day <= daysInMonth) {
-                        var compatibility = processCompatability(attitude, processSumFull(day));
+                        var compatibility = processCompatability(lifePath, processSumFull(day));
                         var colorClass = 'compatibility-' + compatibility;
-                        calendar += '<td class="' + colorClass + '"><div>' + day + '</div>' + createHourGrid(attitude) + '</td>';
+                        calendar += '<td class="' + colorClass + '"><div>' + day + '</div>' + createHourGrid(lifePath) + '</td>';
                        day++;
                     } else {
                         calendar += '<td>&nbsp;</td>';
@@ -405,8 +408,9 @@
         <div>
             <br>
             Tesla - 07/01/2003<br>
+            TSLA - 06/29/2010<br>
             United states - 07/04/1776<br>
-            Stock Market - 5/17/1792
+            Stock Market - 5/17/1792<br>
         </div>
     </form>
     <br>
