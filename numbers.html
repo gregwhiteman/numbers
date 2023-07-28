@@ -126,7 +126,7 @@
             result.innerHTML += "Personal Month: " + personalMonth + "<br>";
             result.innerHTML += "World Compatibility: " + worldYearSum + " Attitude: " + processSum(dayMonthSum) + ": " + convertCompatability(processCompatability(processSum(dayMonthSum), processSum(worldYearSum))) + "<br>";
 
-            var calendar = createCalendar(currentMonth, currentYear, processSum(dayMonthYearSum), personalMonth, convertCompatability(processCompatability(processSum(dayMonthSum), processSum(worldYearSum))));
+            var calendar = createCalendar(currentMonth, currentYear, processSum(dayMonthYearSum), personalMonth, processCompatability(processSum(dayMonthSum), processSum(worldYearSum)));
             document.getElementById("calendarContainer").innerHTML = calendar;
         }
 
@@ -321,7 +321,7 @@
             var firstDayOfWeek = new Date(year, month - 1, 1).getDay();
 
             var colorMonthClass = 'compatibility-' + processCompatability(lifePath, processSumFull(personalMonth));
-            var colorYearClass = 'compatibility-' + processCompatability(lifePath, processSumFull(personalYear));
+            var colorYearClass = 'compatibility-' + worldCompatability;
 
             var calendar = '<table border="1">';
             calendar += '<tr><th colspan="7" class="' + colorMonthClass + '">' + getMonthName(month) + ' ' + '<div class="' + colorYearClass + '">'+ year + '</div></th></tr>';
@@ -357,7 +357,7 @@
         function changeCalendarMonth() {
             var month = parseInt(document.getElementById("monthSelect").value);
             var year = parseInt(document.getElementById("yearSelect").value);
-            var calendar = createCalendar(month, year, 0);
+            var calendar = createCalendar(month, year, 0, 0, 0);
             document.getElementById("calendarContainer").innerHTML = calendar;
         }
 
