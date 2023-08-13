@@ -9,6 +9,7 @@
             left: 40%;
             position: absolute;
         }
+
         /* Additional styles for the hour grid */
         .hour-grid {
             display: grid;
@@ -26,6 +27,7 @@
             font-size: 10px;
             border: 1px solid #ccc;
         }
+
         .compatibility-2 {
             background-color: lightblue;
         }
@@ -41,6 +43,7 @@
         .compatibility--1 {
             background-color: red;
         }
+
         .hour-number-2 {
             color: white;
             background-color: green;
@@ -59,6 +62,10 @@
         .hour-number--1 {
             color: white;
             background-color: red;
+        }
+
+        .card {
+            width: 6%;
         }
     </style>
     <script>
@@ -111,7 +118,112 @@
                     }
                 }
             }
-            result.innerHTML = processSum(vowelSum) + " " + processSum(consonantSum) + " " + processSum(vowelSum + consonantSum) + " " + processSum(daySum) + " " + processSum(dayMonthYearSum) + " " + processSum(dayMonthSum) + "<br>";
+            result.innerHTML = ""
+
+            // Define image URLs for different ranges of numbers
+            const images = [
+                'RWS/00_Fool.jpg', // Image for range 1
+                'RWS/01_Magician.jpg', // Image for range 1
+                'RWS/02_HighPriestess.jpg', // Image for range 2
+                'RWS/03_Empress.jpg', // Image for range 3
+                'RWS/04_Emperor.jpg', // Image for range 1
+                'RWS/05_Hierophant.jpg', // Image for range 2
+                'RWS/06_Lovers.jpg', // Image for range 3
+                'RWS/07_Chariot.jpg', // Image for range 1
+                'RWS/08_Strength.jpg', // Image for range 2
+                'RWS/09_Hermit.jpg', // Image for range 3
+                'RWS/10_Wheel_of_Fortune.jpg', // Image for range 3
+                'RWS/11_Justice.jpg', // Image for range 1
+                'RWS/12_Hanged_Man.jpg', // Image for range 2
+                'RWS/13_Death.jpg', // Image for range 3
+                'RWS/14_Temperance.jpg', // Image for range 1
+                'RWS/15_Devil.jpg', // Image for range 2
+                'RWS/15_Devil.jpg', // Image for range 3
+                'RWS/16_Tower.jpg', // Image for range 1
+                'RWS/17_Star.jpg', // Image for range 2
+                'RWS/18_Moon.jpg', // Image for range 3
+                'RWS/19_Sun.jpg', // Image for range 3
+                'RWS/20_Judgement.jpg', // Image for range 2
+                'RWS/21_World.jpg', // Image for range 3
+            ];
+
+            const cardDefinitions = [
+                "The Fool - Represents new beginnings and spontaneity.",
+                "The Magician - Signifies willpower and creation.",
+                "The High Priestess - Symbolizes intuition and mystery.",
+                "The Empress - Stands for nurturing and abundance.",
+                "The Emperor - Represents authority and structure.",
+                "The Hierophant - Signifies tradition and spiritual guidance.",
+                "The Lovers - Symbolizes love and harmony.",
+                "The Chariot - Represents determination and victory.",
+                "Strength - Stands for inner strength and courage.",
+                "The Hermit - Signifies solitude and introspection.",
+                "Wheel of Fortune - Symbolizes cycles and change.",
+                "Justice - Represents fairness and balance.",
+                "The Hanged Man - Signifies letting go and surrender.",
+                "Death - Symbolizes transformation and rebirth.",
+                "Temperance - Stands for balance and harmony.",
+                "The Devil - Represents materialism and bondage.",
+                "The Tower - Signifies upheaval and sudden change.",
+                "The Star - Symbolizes hope and inspiration.",
+                "The Moon - Stands for intuition and the subconscious.",
+                "The Sun - Represents success and vitality.",
+                "Judgement - Signifies self-reflection and awakening.",
+                "The World - Symbolizes completion and fulfillment."
+            ];
+
+            // Get references to the result elements
+            //const result = document.getElementById('result');
+            //const resultTwoDig = document.getElementById('resultTwoDig');
+            //const result72 = document.getElementById('result72');
+
+            // Extract numerical values from processSum function calls
+            const values = [
+                processSum(vowelSum),
+                processSum(consonantSum),
+                processSum(vowelSum + consonantSum),
+                processSum(daySum),
+                processSum(dayMonthYearSum),
+                processSum(dayMonthSum),
+                //processSumTwoDig(vowelSum),
+                //processSumTwoDig(consonantSum),
+                //processSumTwoDig(vowelSum + consonantSum),
+                //processSumTwoDig(daySum),
+                //processSumTwoDig(dayMonthYearSum),
+                //processSumTwoDig(dayMonthSum),
+            ];
+
+            const displayedImages = new Set();
+
+            for (let i = 0; i < values.length; i++) {
+                const value = values[i];
+
+                if (value >= 0 && value < images.length) {
+                    const imageUrl = images[value];
+                    const cardDefinition = cardDefinitions[value];
+
+                    if (displayedImages.size == 6) {
+                        result.innerHTML += "<br>"; // Move to the next row after every 6 images
+                    }
+
+                    result.innerHTML += `
+                        <div class="card-container">
+                            <img src="${imageUrl}" class="card" alt="Image">
+                            <p class="card-definition">${cardDefinition}</p>
+                        </div>
+                    `;
+
+                    displayedImages.add(imageUrl); // Mark image as displayed
+                } else {
+                    result.innerHTML += "Invalid value ";
+                }
+            }
+
+            result.innerHTML += "<br>"
+            result.innerHTML += "<br>"
+            result.innerHTML += processSum(vowelSum) + " " + processSum(consonantSum) + " " + processSum(vowelSum + consonantSum) + " " + processSum(daySum) + " " + processSum(dayMonthYearSum) + " " + processSum(dayMonthSum) + "<br>";
+            result.innerHTML += processSumTwoDig(vowelSum) + " " + processSumTwoDig(consonantSum) + " " + processSumTwoDig(vowelSum + consonantSum) + " " + processSumTwoDig(daySum) + " " + processSumTwoDig(dayMonthYearSum) + " " + processSumTwoDig(dayMonthSum) + "<br>";
+            result.innerHTML += processSum72(vowelSum) + " " + processSum72(consonantSum) + " " + processSum72(vowelSum + consonantSum) + " " + processSum72(daySum) + " " + processSum72(dayMonthYearSum) + " " + processSum72(dayMonthSum) + "<br>";
             result.innerHTML += "Vowels: " + vowels.join(", ") + "<br>";
             result.innerHTML += "Consonants: " + consonants.join(", ") + "<br>";
             result.innerHTML += "Calculated Numbers: " + calculatedNumbers.join(", ") + "<br>";
@@ -149,6 +261,39 @@
             } else {
                 while (sum > 9) {
                     if (sum === 11 || sum === 22 || sum === 33) {
+                        return sum;
+                    }
+                    var digits = sum.toString().split("").map(Number);
+                    sum = digits.reduce(function (a, b) {
+                        return a + b;
+                    });
+                }
+                return sum;
+            }
+        }
+        function processSumTwoDig(sum) {
+            if (sum < 22) {
+                return sum;
+            } else {
+                while (sum > 9) {
+                    if (sum < 22) {
+                        return sum;
+                    }
+                    var digits = sum.toString().split("").map(Number);
+                    sum = digits.reduce(function (a, b) {
+                        return a + b;
+                    });
+                }
+                return sum;
+            }
+        }
+
+        function processSum72(sum) {
+            if (sum <= 72) {
+                return sum;
+            } else {
+                while (sum > 9) {
+                    if (sum <= 72) {
                         return sum;
                     }
                     var digits = sum.toString().split("").map(Number);
@@ -324,7 +469,7 @@
             var colorYearClass = 'compatibility-' + worldCompatability;
 
             var calendar = '<table border="1">';
-            calendar += '<tr><th colspan="7" class="' + colorMonthClass + '">' + getMonthName(month) + ' ' + '<div class="' + colorYearClass + '">'+ year + '</div></th></tr>';
+            calendar += '<tr><th colspan="7" class="' + colorMonthClass + '">' + getMonthName(month) + ' ' + '<div class="' + colorYearClass + '">' + year + '</div></th></tr>';
             calendar += '<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
             var day = 1;
             for (var week = 0; week < 6; week++) {
@@ -336,7 +481,7 @@
                         var compatibility = processCompatability(lifePath, processSumFull(day));
                         var colorClass = 'compatibility-' + compatibility;
                         calendar += '<td class="' + colorClass + '"><div>' + day + '</div>' + createHourGrid(lifePath) + '</td>';
-                       day++;
+                        day++;
                     } else {
                         calendar += '<td>&nbsp;</td>';
                     }
@@ -396,16 +541,16 @@
 </head>
 
 <body>
-    <h1>Name and Date Input</h1>
     <form>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" required value="Greg Whiteman">
         <br><br>
         <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required>
+        <input type="date" id="date" name="date" required value="1980-02-27">
         <br><br>
         <input type="button" value="Submit" onclick="calculateNumber()">
         <div>
+            <!--
             <br>
             Tesla - 07/01/2003<br>
             TSLA - 06/29/2010<br>
@@ -413,6 +558,73 @@
             Stock Market - 5/17/1792<br>
             GLD - 12/13/2007<br>
             SLV - 08/15/2014<br>
+            nasdaq - 02/08/1971<br>
+            <br>
+            <br>
+            <p>
+                <br>The Fool - Represents beginnings, new opportunities - Pythagorean Numerology: 0
+                <br>The Magician - Represents manifestation, power - Pythagorean Numerology: 1
+                <br>The High Priestess - Represents intuition, mystery - Pythagorean Numerology: 2
+                <br>The Empress - Represents nurturing, abundance - Pythagorean Numerology: 3
+                <br>The Emperor - Represents authority, structure - Pythagorean Numerology: 4
+                <br>The Hierophant - Represents tradition, spirituality - Pythagorean Numerology: 5
+                <br>The Lovers - Represents choices, partnerships - Pythagorean Numerology: 6
+                <br>The Chariot - Represents willpower, control - Pythagorean Numerology: 7
+                <br>Strength - Represents inner strength, courage - Pythagorean Numerology: 8
+                <br>The Hermit - Represents introspection, solitude - Pythagorean Numerology: 9
+                <br>Wheel of Fortune - Represents cycles, fate - Pythagorean Numerology: 10
+                <br>Justice - Represents fairness, balance - Pythagorean Numerology: 11
+                <br>The Hanged Man - Represents surrender, letting go - Pythagorean Numerology: 12
+                <br>Death - Represents transformation, change - Pythagorean Numerology: 13
+                <br>Temperance - Represents harmony, moderation - Pythagorean Numerology: 14
+                <br>The Devil - Represents materialism, bondage - Pythagorean Numerology: 15
+                <br>The Tower - Represents upheaval, revelation - Pythagorean Numerology: 16
+                <br>The Star - Represents hope, inspiration - Pythagorean Numerology: 17
+                <br>The Moon - Represents illusion, intuition - Pythagorean Numerology: 18
+                <br>The Sun - Represents success, joy - Pythagorean Numerology: 19
+                <br>Judgment - Represents rebirth, accountability - Pythagorean Numerology: 20
+                <br>The World - Represents completion, fulfillment - Pythagorean Numerology: 21
+                <br>Ace of Wands - Represents inspiration, new ventures - Pythagorean Numerology: 1
+                <br>Two of Wands - Represents planning, decisions - Pythagorean Numerology: 2
+                <br>Three of Wands - Represents progress, expansion - Pythagorean Numerology: 3
+                <br>Four of Wands - Represents celebration, harmony - Pythagorean Numerology: 4
+                <br>Five of Wands - Represents competition, challenges - Pythagorean Numerology: 5
+                <br>Six of Wands - Represents victory, recognition - Pythagorean Numerology: 6
+                <br>Seven of Wands - Represents perseverance, defiance - Pythagorean Numerology: 7
+                <br>Eight of Wands - Represents speed, communication - Pythagorean Numerology: 8
+                <br>Nine of Wands - Represents resilience, determination - Pythagorean Numerology: 9
+                <br>Ten of Wands - Represents burden, responsibility - Pythagorean Numerology: 10
+                <br>Ace of Cups - Represents love, emotions - Pythagorean Numerology: 1
+                <br>Two of Cups - Represents partnership, connection - Pythagorean Numerology: 2
+                <br>Three of Cups - Represents joy, celebration - Pythagorean Numerology: 3
+                <br>Four of Cups - Represents introspection, contemplation - Pythagorean Numerology: 4
+                <br>Five of Cups - Represents loss, disappointment - Pythagorean Numerology: 5
+                <br>Six of Cups - Represents nostalgia, kindness - Pythagorean Numerology: 6
+                <br>Seven of Cups - Represents choices, illusion - Pythagorean Numerology: 7
+                <br>Eight of Cups - Represents transition, moving on - Pythagorean Numerology: 8
+                <br>Nine of Cups - Represents contentment, wishes - Pythagorean Numerology: 9
+                <br>Ten of Cups - Represents harmony, family - Pythagorean Numerology: 10
+                <br>Ace of Swords - Represents clarity, truth - Pythagorean Numerology: 1
+                <br>Two of Swords - Represents decisions, balance - Pythagorean Numerology: 2
+                <br>Three of Swords - Represents heartache, conflict - Pythagorean Numerology: 3
+                <br>Four of Swords - Represents rest, healing - Pythagorean Numerology: 4
+                <br>Five of Swords - Represents defeat, loss - Pythagorean Numerology: 5
+                <br>Six of Swords - Represents transition, moving forward - Pythagorean Numerology: 6
+                <br>Seven of Swords - Represents deception, strategy - Pythagorean Numerology: 7
+                <br>Eight of Swords - Represents restriction, self-imposed - Pythagorean Numerology: 8
+                <br>Nine of Swords - Represents anxiety, fear - Pythagorean Numerology: 9
+                <br>Ten of Swords - Represents ending, release - Pythagorean Numerology: 10
+                <br>Ace of Pentacles - Represents opportunity, prosperity - Pythagorean Numerology: 1
+                <br>Two of Pentacles - Represents balance, adaptability - Pythagorean Numerology: 2
+                <br>Three of Pentacles - Represents collaboration, craftsmanship - Pythagorean Numerology: 3
+                <br>Four of Pentacles - Represents stability, possession - Pythagorean Numerology: 4
+                <br>Five of Pentacles - Represents hardship, material loss - Pythagorean Numerology: 5
+                <br>Six of Pentacles - Represents generosity, sharing - Pythagorean Numerology: 6
+                <br>Seven of Pentacles - Represents patience, investment - Pythagorean Numerology: 7
+                <br>Eight of Pentacles - Represents diligence, skill - Pythagorean Numerology: 8
+                <br>Nine of Pentacles - Represents self-sufficiency, luxury - Pythagorean Numerology: 9
+                <br>Ten of Pentacles - Represents abundance, legacy - Pythagorean Numerology: 10
+            </p>-->
         </div>
     </form>
     <br>

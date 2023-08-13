@@ -1,0 +1,148 @@
+{
+  "main": {
+    "id": "16b2e1e2841651ef",
+    "type": "split",
+    "children": [
+      {
+        "id": "18e43a06b06b7efa",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1dc4f08277b410f1",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "bd355049c5eb981d",
+    "type": "split",
+    "children": [
+      {
+        "id": "240a10dcac9a4c59",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "30bab2c5b8954ae8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "c0f60a2ae53edc7c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "c03d1106f5f9949a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "1828d5c15e30b9b5",
+    "type": "split",
+    "children": [
+      {
+        "id": "638d26b81b3d65e1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "546833c9030f6a06",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3771d88a79e5e92c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f0fa7e33311b787f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "cfc2332edaaf2d24",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "1dc4f08277b410f1",
+  "lastOpenFiles": [
+    "Emma Whiteman_3 5 8 4 4 8.md",
+    "Greg Whiteman_2 11 4 9 11 11.md",
+    "Eli Whiteman_11 9 11 8 2 1.md",
+    "Anna Whiteman_8 7 6 2 9 9.md"
+  ]
+}
