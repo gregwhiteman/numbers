@@ -67,6 +67,38 @@
         .card {
             width: 6%;
         }
+
+        /* Add this to your stylesheet */
+        .card-wrapper {
+            /*
+            position: relative;
+            display: grid;
+            border: #ccc solid 1px;
+            width: 10%;*/
+        }
+
+        .card-tooltip {
+            visibility: hidden;
+            width: auto;
+            max-width: 300px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 10%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .card-wrapper:hover .card-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
     <script>
 
@@ -148,7 +180,7 @@
             ];
 
             const cardDefinitions = [
-                "The Fool - Represents new beginnings and spontaneity.",
+                "The Fool - Represents new beginnings and spontaneity.<br>The Fool card represents a state of new beginnings and spontaneity. It signifies a journey of exploration, often guided by intuition and innocence. This card embodies the notion of taking risks and stepping into the unknown with a sense of optimism and open-mindedness. It encourages embracing opportunities without preconceived notions and allows for personal growth through experiences.",
                 "The Magician - Signifies willpower and creation.",
                 "The High Priestess - Symbolizes intuition and mystery.",
                 "The Empress - Stands for nurturing and abundance.",
@@ -171,7 +203,51 @@
                 "Judgement - Signifies self-reflection and awakening.",
                 "The World - Symbolizes completion and fulfillment."
             ];
+/*
+            The Fool: 
 
+The Magician: The Magician card symbolizes the power of will and creativity. It embodies the ability to manifest one's desires and intentions through the combination of inner potential and external resources. The Magician signifies the alignment of thoughts, actions, and intentions to bring about transformation and change. This card highlights the potential for self-empowerment and mastery over one's surroundings.
+
+The High Priestess: The High Priestess card represents intuition, mystery, and inner wisdom. This card embodies the realm of the subconscious and encourages a deeper exploration of one's inner self. It signifies a connection to the unseen and the ability to tap into hidden knowledge. The High Priestess invites reflection and meditation, urging individuals to trust their instincts and delve into the depths of their intuition.
+
+The Empress: The Empress card stands for nurturing, abundance, and the natural world. It symbolizes the energies of fertility, creativity, and motherhood. This card embodies the power of creation and growth, both on a physical and emotional level. The Empress represents the ability to nurture and care for oneself and others, as well as the capacity to find beauty and inspiration in the world around us.
+
+The Emperor: The Emperor card represents authority, structure, and leadership. It embodies the qualities of discipline, order, and practicality. This card signifies the ability to establish and maintain control over situations and responsibilities. The Emperor reflects the balance between power and responsibility and encourages individuals to take charge of their lives with a sense of purpose and organization.
+
+The Hierophant: The Hierophant card signifies tradition, spiritual guidance, and wisdom. It embodies the role of a spiritual teacher or mentor who imparts valuable knowledge and guidance. This card encourages seeking higher truths and embracing established belief systems. The Hierophant represents the connection between the divine and the earthly, urging individuals to find meaning and guidance through spiritual practices and institutions.
+
+The Lovers: The Lovers card symbolizes love, harmony, and choices. It embodies the energies of deep connections, partnerships, and emotional bonds. This card signifies the importance of making choices that align with one's values and desires. The Lovers represent the unity of opposites and the potential for balanced relationships based on mutual respect and understanding.
+
+The Chariot: The Chariot card represents determination, victory, and focused energy. It embodies the idea of moving forward with confidence and control, regardless of challenges. This card signifies the need to harness one's inner strengths and navigate life's journey with purpose and determination. The Chariot reflects the balance between opposing forces, urging individuals to stay resolute and achieve their goals.
+
+Strength: The Strength card stands for inner strength, courage, and compassion. It embodies the ability to overcome challenges through gentleness and understanding rather than brute force. This card signifies the power of patience, self-control, and resilience. Strength represents the harmony between the physical and emotional aspects of oneself, encouraging individuals to find courage in vulnerability and to face difficulties with grace.
+
+The Hermit: The Hermit card signifies solitude, introspection, and inner guidance. It embodies a period of withdrawal from the external world in order to seek answers within. This card encourages introspective contemplation and self-discovery, highlighting the value of solitude and quiet reflection. The Hermit represents a journey of self-understanding and personal growth through inner exploration.
+
+Wheel of Fortune: The Wheel of Fortune card symbolizes cycles, change, and destiny. It embodies the idea that life operates in cycles of ups and downs, and that change is an inevitable part of the human experience. This card signifies the concept of fate and the influence of external forces on one's journey. The Wheel of Fortune reminds individuals to embrace change and approach life's fluctuations with an open heart.
+
+Justice: The Justice card represents fairness, balance, and impartiality. It embodies the idea of making decisions based on objective reasoning and ethical principles. This card signifies the need to seek truth and equity in all matters. Justice reflects the consequences of one's actions and the importance of accountability, encouraging individuals to approach situations with integrity and a sense of moral responsibility.
+
+The Hanged Man: The Hanged Man card signifies letting go, surrender, and a new perspective. It embodies the concept of sacrificing immediate desires for long-term growth and understanding. This card encourages individuals to release attachments and surrender to the flow of life, even in challenging situations. The Hanged Man represents a willingness to view life from a different angle and to find insights through moments of suspension and introspection.
+
+Death: The Death card symbolizes transformation, rebirth, and the end of a cycle. It embodies the idea that change is a necessary and natural part of existence. This card signifies the process of letting go of the old to make way for the new, whether in terms of beliefs, relationships, or circumstances. Death represents the potential for profound personal growth and renewal through embracing inevitable changes.
+
+Temperance: The Temperance card stands for balance, harmony, and moderation. It embodies the idea of blending opposing forces to create a harmonious whole. This card signifies the importance of finding equilibrium and avoiding extremes in all aspects of life. Temperance represents the ability to navigate challenges with patience, adaptability, and a holistic perspective.
+
+The Devil: The Devil card represents materialism, bondage, and the influence of the ego. It embodies the notion of being trapped by worldly desires and attachments. This card signifies the need to confront and overcome negative patterns or addictions that hinder personal growth. The Devil reflects the power of the ego and urges individuals to free themselves from self-imposed limitations and unhealthy attachments.
+
+The Tower: The Tower card signifies upheaval, sudden change, and the breaking down of old structures. It embodies the idea of unexpected events that disrupt the status quo and lead to profound transformation. This card signifies the need to embrace change even when it feels disruptive, as it often clears the path for growth and renewal. The Tower represents the dismantling of outdated beliefs and systems to make way for new beginnings.
+
+The Star: The Star card symbolizes hope, inspiration, and spiritual guidance. It embodies the idea of finding light in times of darkness and moving towards a better future. This card signifies a sense of renewal and optimism, as well as the potential for healing and inner transformation. The Star represents the connection between the earthly and the divine, encouraging individuals to pursue their dreams and aspirations with unwavering faith.
+
+The Moon: The Moon card stands for intuition, the subconscious, and hidden truths. It embodies the idea that reality is often influenced by emotions, perceptions, and unconscious desires. This card signifies the need to explore the depths of one's psyche and confront illusions and fears. The Moon represents the interplay between light and darkness, urging individuals to trust their intuition and navigate uncertainty with inner wisdom.
+
+The Sun: The Sun card represents success, vitality, and joy. It embodies the idea of experiencing life with enthusiasm and optimism. This card signifies the realization of one's true potential and the radiance of inner authenticity. The Sun reflects a period of clarity, growth, and abundance, encouraging individuals to embrace their uniqueness and shine brightly in all aspects of life.
+
+Judgement: The Judgement card symbolizes self-reflection, awakening, and a reckoning of one's actions. It embodies the concept of evaluating one's choices and embracing personal transformation. This card signifies a period of self-discovery and accountability, where individuals assess their past actions and make decisions that align with their higher purpose. Judgement represents a call to awaken to one's true self and embrace a higher level of consciousness.
+
+The World: The World card signifies completion, fulfillment, and wholeness. It embodies the idea of reaching a state of harmony and achievement after a cycle of growth and transformation. This card signifies the integration of different aspects of life and the attainment of personal and spiritual goals. The World represents a sense of accomplishment and connection with the broader universe, highlighting the cyclical nature of existence.
+*/
             // Get references to the result elements
             //const result = document.getElementById('result');
             //const resultTwoDig = document.getElementById('resultTwoDig');
@@ -207,10 +283,7 @@
                     }
 
                     result.innerHTML += `
-                        <div class="card-container">
-                            <img src="${imageUrl}" class="card" alt="Image">
-                            <p class="card-definition">${cardDefinition}</p>
-                        </div>
+                            <img src="${imageUrl}" class="card" title="${cardDefinition}" alt="${cardDefinition}"> 
                     `;
 
                     displayedImages.add(imageUrl); // Mark image as displayed
