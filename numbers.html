@@ -100,93 +100,78 @@
             opacity: 1;
         }
 
-        .day-cycle {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: bold;
-            border:rgba(0, 0, 0, 0.8), solid, 1px
-        }
-
         /* Shades of Green for Days 1-9 */
-        .day-cycle.color-1 {
-            background-color: rgba(0, 255, 0, 1.0);
-            width: 20px;
-            border:rgba(0, 0, 0, 0.8), solid, 1px
-        
+        .day-cycle-color-1 {
+            background-color: rgba(0, 255, 0, 0.2);       
         }
 
-        .day-cycle.color-2 {
-            background-color: rgba(0, 255, 0, 0.8);
-        }
-
-        .day-cycle.color-3 {
-            background-color: rgba(0, 255, 0, 0.6);
-        }
-
-        .day-cycle.color-4 {
+        .day-cycle-color-2 {
             background-color: rgba(0, 255, 0, 0.4);
         }
 
-        .day-cycle.color-5 {
+        .day-cycle-color-3 {
+            background-color: rgba(0, 255, 0, 0.6);
+        }
+
+        .day-cycle-color-4 {
+            background-color: rgba(0, 255, 0, 0.8);
+        }
+
+        .day-cycle-color-5 {
+            background-color: rgba(0, 255, 0, 1.0);
+        }
+
+        .day-cycle-color-6 {
+            background-color: rgba(0, 255, 0, 0.8);
+        }
+
+        .day-cycle-color-7 {
+            background-color: rgba(0, 255, 0, 0.6);
+        }
+
+        .day-cycle-color-8 {
+            background-color: rgba(0, 255, 0, 0.4);
+        }
+
+        .day-cycle-color-9 {
             background-color: rgba(0, 255, 0, 0.2);
         }
 
-        .day-cycle.color-6 {
-            background-color: rgba(0, 255, 0, 0.4);
-        }
-
-        .day-cycle.color-7 {
-            background-color: rgba(0, 255, 0, 0.6);
-        }
-
-        .day-cycle.color-8 {
-            background-color: rgba(0, 255, 0, 0.8);
-        }
-
-        .day-cycle.color-9 {
-            background-color: rgba(0, 255, 0, 1.0);
-        }
-
         /* Shades of Red for Days 10-18 */
-        .day-cycle.color-10 {
-            background-color: rgba(255, 0, 0, 1.0);
-        }
-
-        .day-cycle.color-11 {
-            background-color: rgba(255, 0, 0, 0.8);
-        }
-
-        .day-cycle.color-12 {
-            background-color: rgba(255, 0, 0, 0.6);
-        }
-
-        .day-cycle.color-13 {
-            background-color: rgba(255, 0, 0, 0.4);
-        }
-
-        .day-cycle.color-14 {
+        .day-cycle-color-10 {
             background-color: rgba(255, 0, 0, 0.2);
         }
 
-        .day-cycle.color-15 {
+        .day-cycle-color-11 {
             background-color: rgba(255, 0, 0, 0.4);
         }
 
-        .day-cycle.color-16 {
+        .day-cycle-color-12 {
             background-color: rgba(255, 0, 0, 0.6);
         }
 
-        .day-cycle.color-17 {
+        .day-cycle-color-13 {
             background-color: rgba(255, 0, 0, 0.8);
         }
 
-        .day-cycle.color-18 {
+        .day-cycle-color-14 {
             background-color: rgba(255, 0, 0, 1.0);
+        }
+
+        .day-cycle-color-15 {
+            background-color: rgba(255, 0, 0, 0.8);
+        }
+
+        .day-cycle-color-16 {
+            background-color: rgba(255, 0, 0, 0.6);
+        }
+
+        .day-cycle-color-17 {
+            background-color: rgba(255, 0, 0, 0.4);
+        }
+
+        .day-cycle-color-18 {
+            background-color: rgba(255, 0, 0, 0.2);
         }
     </style>
     <script>
@@ -714,9 +699,9 @@
                     } else if (day <= daysInMonth) {
                         var compatibility = processCompatability(lifePath, processSumFull(day));
                         var colorClass = 'compatibility-' + compatibility;
-                        var dayCycleClass = 'day-cycle.color-'+calculateCycleDay(startDate, (year + '-' + month + '-' + day)) 
+                        var dayCycleClass = 'day-cycle-color-'+calculateCycleDay(startDate, (year + '-' + month + '-' + day)) 
                         var dayCycleNumber = calculateCycleDay(startDate, (year + '-' + month + '-' + day)) 
-                        calendar += '<td class="' + colorClass + '"><div>' + day + ' ' + '</div>' + createHourGrid(lifePath) + '</td>';
+                        calendar += '<td class="' + colorClass + '"><div>' + day + ' ' + '</div>' + createHourGrid(lifePath) + '<div class="'+dayCycleClass+'">'+dayCycleNumber+'</div></td>';
                         day++;
                     } else {
                         calendar += '<td>&nbsp;</td>';
