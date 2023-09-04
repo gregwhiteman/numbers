@@ -268,9 +268,9 @@
             background-color: rgba(255, 0, 0, 0.1);
         }
 
-         /****28***************************/
+        /****28***************************/
 
-         .day-cycle28-color-1 {
+        .day-cycle28-color-1 {
             background-color: rgba(0, 255, 0, 0.1);
         }
 
@@ -1020,8 +1020,7 @@
             return cycleDay;
         }
 
-        function getMoonPhase(startDateString, checkDateString) {
-            const startDate = new Date(startDateString);
+        function getMoonPhase(checkDateString) {
             const checkDate = new Date(checkDateString);
 
             // Known New Moon date to base the calculations
@@ -1034,18 +1033,83 @@
             const moonPhaseIndex = Math.floor(daysSinceNewMoon % synodicPeriod);
 
             const moonPhases = [
+                'Waning Crescent',
                 'New Moon',
+                'Waxing Crescent',
+                'Waxing Crescent',
+                'Waxing Crescent',
+                'Waxing Crescent',
+                'Waxing Crescent',
+                'Waxing Crescent',
                 'Waxing Crescent',
                 'First Quarter',
                 'Waxing Gibbous',
+                'Waxing Gibbous',
+                'Waxing Gibbous',
+                'Waxing Gibbous',
+                'Waxing Gibbous',
+                'Waxing Gibbous',
                 'Full Moon',
                 'Waning Gibbous',
+                'Waning Gibbous',
+                'Waning Gibbous',
+                'Waning Gibbous',
+                'Waning Gibbous',
+                'Waning Gibbous',
                 'Last Quarter',
+                'Waning Crescent',
+                'Waning Crescent',
+                'Waning Crescent',
+                'Waning Crescent',
                 'Waning Crescent'
             ];
 
-            //return moonPhases[moonPhaseIndex];
-            return moonPhaseIndex;
+            const moonPhase = moonPhases[moonPhaseIndex];
+
+            // Map moon phase to image file name
+            const moonPhaseImages = [
+                'm30.jpeg',  // New Moon
+                'm31.jpeg',  // New Moon
+                'm0.jpeg',  // New Moon
+                'm1.jpeg',  // Waxing Crescent
+                'm2.jpeg',  // Waxing Crescent
+                'm3.jpeg',  // Waxing Crescent
+                'm4.jpeg',  // Waxing Crescent
+                'm5.jpeg',  // Waxing Crescent
+                'm6.jpeg',  // Waxing Crescent
+                'm7.jpeg',  // Waxing Crescent
+                'm8.jpeg',  // First Quarter
+                'm9.jpeg',  // Waxing Gibbous
+                'm10.jpeg',  // Waxing Gibbous
+                'm11.jpeg',  // Waxing Gibbous
+                'm12.jpeg',  // Waxing Gibbous
+                'm13.jpeg',  // Waxing Gibbous
+                'm14.jpeg',  // Waxing Gibbous
+                'm15.jpeg',  // Full Moon
+                'm16.jpeg',  // Waning Gibbous
+                'm17.jpeg',  // Waning Gibbous
+                'm18.jpeg',  // Waning Gibbous
+                'm19.jpeg',  // Waning Gibbous
+                'm20.jpeg',  // Waning Gibbous
+                'm21.jpeg',  // Waning Gibbous
+                'm22.jpeg',  // Last Quarter
+                'm23.jpeg',  // Waning Crescent
+                'm24.jpeg',  // Waning Crescent
+                'm25.jpeg',  // Waning Crescent
+                'm26.jpeg',  // Waning Crescent
+                'm27.jpeg',   // Waning Crescent
+                'm28.jpeg',   // Waning Crescent
+                'm29.jpeg'   // Waning Crescent
+            ];
+
+            const moonPhaseImage = moonPhaseImages[moonPhaseIndex];
+
+            // Create and return the HTML img tag
+            const imgTag = `<img src="moonPhases/${moonPhaseImage}" alt="${moonPhase}" />`;
+
+            //return moonPhaseIndex
+            return imgTag;
+            
         }
 
         // Function to create and populate the calendar for a given month and year
@@ -1082,14 +1146,14 @@
                         var dayCycleAdeptClass = 'day-cycle-color-' + calculateCycleDay(startDate, (year + '-' + month + '-' + day), 18, 1)
                         var dayCycleAdeptNumber = calculateCycleDay(startDate, (year + '-' + month + '-' + day), 18, 1)
                         /*Moon*/
-                        var dayCycleMoonClass = 'day-cycle28-color-' + getMoonPhase(startDate, (year + '-' + month + '-' + day))
-                        var dayCycleMoonNumber = getMoonPhase(startDate, (year + '-' + month + '-' + day))
+                        var dayCycleMoonClass = 'day-cycle28-color-' + getMoonPhase((year + '-' + month + '-' + day))
+                        var dayCycleMoonNumber = getMoonPhase((year + '-' + month + '-' + day))
                         calendar += '<td class=""><div class="' + colorClass + '">' + day + ' ' + '</div>' + createHourGrid(lifePath) +
                             '<div class="' + dayCyclePhysicalClass + '">' + dayCyclePhysicalNumber + '</div>' +
                             '<div class="' + dayCycleEmotionalClass + '">' + dayCycleEmotionalNumber + '</div>' +
                             '<div class="' + dayCycleIntellectualClass + '">' + dayCycleIntellectualNumber + '</div>' +
                             '<div class="' + dayCycleAdeptClass + '">' + dayCycleAdeptNumber + '</div>' +
-                            '<div class="' + dayCycleMoonClass + '">' + dayCycleMoonNumber + '</div>' +
+                            '<div class="' + '">' + dayCycleMoonNumber + '</div>' +
                             '</td>';
                         day++;
                     } else {
