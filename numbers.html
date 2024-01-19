@@ -4,10 +4,87 @@
 <head>
     <title>Numbers</title>
     <style>
-        .right {
-            top: 10%;
-            left: 40%;
+        .mainCard {
+            top: 0%;
+            left: 22%;
+            width: 77%;
+            height: 30%;
+            border: 1px solid black;
             position: absolute;
+        }
+
+        .lifePath {
+            top: 1%;
+            left: 2%;
+            width: 30%;
+            height: 45%;
+            border: 1px solid green;
+            position: absolute;
+            overflow:scroll;
+        }
+
+        .soulNumber {
+            top: 1%;
+            left: 34.5%;
+            width: 30%;
+            height: 45%;
+            border: 1px solid black;
+            position: absolute;
+            overflow:scroll;
+        }
+
+        .personality {
+            top: 1%;
+            left: 67%;
+            width: 30%;
+            height: 45%;
+            border: 1px solid yellow;
+            position: absolute;
+            overflow:scroll;
+        }
+
+        .power {
+            top: 50%;
+            left: 2%;
+            width: 30%;
+            height: 45%;
+            border: 1px solid purple;
+            position: absolute;
+            overflow:scroll;
+        }
+
+        .birthday {
+            top: 50%;
+            left: 34.5%;
+            width: 30%;
+            height: 45%;
+            border: 1px solid orange;
+            position: absolute;
+            overflow:scroll;
+        }
+
+        .attitude {
+            top: 50%;
+            left: 67%;
+            width: 30%;
+            height: 45%;
+            border: 1px solid red;
+            position: absolute;
+            overflow:scroll;
+        }
+
+        .right {
+            top: 50%;
+            left: 2%;
+            position: absolute;
+        }
+
+        .result {
+            top: 31%;
+            left: 2%;
+            height: 20%;
+            position: absolute;
+            overflow: scroll;
         }
 
         /* Additional styles for the hour grid */
@@ -622,6 +699,12 @@
             var name = document.getElementById("name").value.toUpperCase();
             var date = document.getElementById("date").value;
             var result = document.getElementById("result");
+            var lifePath = document.getElementById("lifePath");
+            var soulNumber = document.getElementById("soulNumber");
+            var personality = document.getElementById("personality");
+            var power = document.getElementById("power");
+            var birthday = document.getElementById("birthday");
+            var attitude = document.getElementById("attitude");
             var vowels = [];
             var consonants = [];
             var vowelSum = 0;
@@ -667,6 +750,15 @@
                 }
             }
             result.innerHTML = ""
+
+            const numberMeanings = [
+                'How you Feel inside', //Soul Number
+                'The personality you show the world', //Personality Number
+                'Your strength', //Power Number
+                'How others see you', //Birthday Number
+                'The path you life must take in order for you to be happy', //Life Path
+                'Your attitude in life', //Attitude Number
+            ]
 
             // Define image URLs for different ranges of numbers
             const images = [
@@ -866,6 +958,13 @@
                     result.innerHTML += "Invalid value ";
                 }
             }
+
+            lifePath.innerHTML = GetLifePath(processSum(dayMonthYearSum))
+            soulNumber.innerHTML = GetSoulNumber(processSum(vowelSum))
+            personality.innerHTML = GetPersonality(processSum(consonantSum))
+            power.innerHTML = GetPowerNumber(processSum(vowelSum + consonantSum))
+            birthday.innerHTML = GetBirthday(processSum(daySum))
+            attitude.innerHTML = GetAttitude(processSum(dayMonthSum))
 
             result.innerHTML += "<br>"
             result.innerHTML += "<br>"
@@ -1090,6 +1189,186 @@
 
         //Calendar******************************************************************
 
+        function GetLifePath(number) {
+            var meaning = "Life Path: "
+            if (number == 1) {
+                meaning = meaning + "1"
+            } else if (number == 2) {
+                meaning = meaning + "[2] The Mediator. Seeks Harmony.  Music has a soothing effect on you.  Easygoing.  Likes Hugs and kisses.  Hates conflict and will do anything to avoid it.  Tries to keep the peace.  Tend to be psychic.  Will have dreams come true.  Experience deja vu.  You are a follower.  You don't have to be the leader.  Tend to be good at Astrology, Numerology, Tarot, Team leaf reading.  Make good councelors and social workers.  You have concern for others. Make great parents. Does not need the spotlight.  You do your job.  You donate to charity in secret.  You love to help out.  You only feel angry when you feel pushed or threatened.  Good natured.  You can sometimes feel like you do everything for everybody and you feel drained.  You need to be carefull to not take on others problems.  Its important to say I'll help as much as I can.  You worry about what others think of you.  What you don't deal with mentally will eventually effect you physically.  When you get upset it is like a valcano erupting.  Without love a 2 can never truly be content. "
+            } else if (number == 3) {
+                meaning = meaning + "3"
+            } else if (number == 4) {
+                meaning = meaning + "4"
+            } else if (number == 5) {
+                meaning = meaning + "5"
+            } else if (number == 6) {
+                meaning = meaning + "6"
+            } else if (number == 7) {
+                meaning = meaning + "7"
+            } else if (number == 8) {
+                meaning = meaning + "8"
+            } else if (number == 9) {
+                meaning = meaning + "9"
+            } else if (number == 11) {
+                meaning = meaning + "11"
+            } else if (number == 22) {
+                meaning = meaning + "22"
+            } else if (number == 33) {
+                meaning = meaning + "33"
+            }
+            return meaning
+        }
+
+        function GetSoulNumber(number) {
+            var meaning = "Soul Number: (How you feel inside) "
+            if (number == 1) {
+                meaning = meaning + "1"
+            } else if (number == 2) {
+                meaning = meaning + "[2] You are happy when you are in love and have a harmonious environment.  You use your intuition to solve problems.  You like to bring people together. Needs reassurance that you are loved and special."
+            } else if (number == 3) {
+                meaning = meaning + "3"
+            } else if (number == 4) {
+                meaning = meaning + "4"
+            } else if (number == 5) {
+                meaning = meaning + "5"
+            } else if (number == 6) {
+                meaning = meaning + "6"
+            } else if (number == 7) {
+                meaning = meaning + "7"
+            } else if (number == 8) {
+                meaning = meaning + "8"
+            } else if (number == 9) {
+                meaning = meaning + "9"
+            } else if (number == 11) {
+                meaning = meaning + "11"
+            } else if (number == 22) {
+                meaning = meaning + "22"
+            } else if (number == 33) {
+                meaning = meaning + "33"
+            }
+            return meaning
+        }
+
+        function GetPersonality(number) {
+            var meaning = "Personality: "
+            if (number == 1) {
+                meaning = meaning + "1"
+            } else if (number == 2) {
+                meaning = meaning + "[2] Mediator and peacemaker. Watch being oversensitive. Learn to establish boundaries.  A good friend. Watch out for people taking advantage of you. Avoids the spotlight. Seeks companionship.  You favor marriage and business alliances.  You have innate fairness and sincerity."
+            } else if (number == 3) {
+                meaning = meaning + "3"
+            } else if (number == 4) {
+                meaning = meaning + "4"
+            } else if (number == 5) {
+                meaning = meaning + "5"
+            } else if (number == 6) {
+                meaning = meaning + "6"
+            } else if (number == 7) {
+                meaning = meaning + "7"
+            } else if (number == 8) {
+                meaning = meaning + "8"
+            } else if (number == 9) {
+                meaning = meaning + "9"
+            } else if (number == 11) {
+                meaning = meaning + "11"
+            } else if (number == 22) {
+                meaning = meaning + "22"
+            } else if (number == 33) {
+                meaning = meaning + "33"
+            }
+            return meaning
+        }
+
+        function GetPowerNumber(number) {
+            var meaning = "Power: "
+            if (number == 1) {
+                meaning = meaning + "1"
+            } else if (number == 2) {
+                meaning = meaning + "2 - "
+            } else if (number == 3) {
+                meaning = meaning + "3"
+            } else if (number == 4) {
+                meaning = meaning + "[4] A solid base.  Responsible.  Your home is important to you.  You can be too blunt sometimes.  You annoy or hurt others unwittingly.  Strong need to acquire knowledge.  You usually know what you are talking about.  Can be seen as negative when critisizing others.  You are loyal.  You are Organized."
+            } else if (number == 5) {
+                meaning = meaning + "5"
+            } else if (number == 6) {
+                meaning = meaning + "6"
+            } else if (number == 7) {
+                meaning = meaning + "7"
+            } else if (number == 8) {
+                meaning = meaning + "8"
+            } else if (number == 9) {
+                meaning = meaning + "9"
+            } else if (number == 11) {
+                meaning = meaning + "11"
+            } else if (number == 22) {
+                meaning = meaning + "22"
+            } else if (number == 33) {
+                meaning = meaning + "33"
+            }
+            return meaning
+        }
+
+        function GetBirthday(number) {
+            var meaning = "Birthday: "
+            if (number == 1) {
+                meaning = meaning + "1"
+            } else if (number == 2) {
+                meaning = meaning + "2 - "
+            } else if (number == 3) {
+                meaning = meaning + "3"
+            } else if (number == 4) {
+                meaning = meaning + "4"
+            } else if (number == 5) {
+                meaning = meaning + "5"
+            } else if (number == 6) {
+                meaning = meaning + "6"
+            } else if (number == 7) {
+                meaning = meaning + "7"
+            } else if (number == 8) {
+                meaning = meaning + "8"
+            } else if (number == 9) {
+                meaning = meaning + "[9] Preceived as a people person.  People look to you for advice.  Strangers ask you for directions.  People are sure that you can help them.  You exude a confidence that makes people trust you.  People trust you with secrets.  You can appear to be condescending.  You must watch your delivery when communicating.  You must establish a healthy boundary with your imediate family in order to stay happy and at peace."
+            } else if (number == 11) {
+                meaning = meaning + "11"
+            } else if (number == 22) {
+                meaning = meaning + "22"
+            } else if (number == 33) {
+                meaning = meaning + "33"
+            }
+            return meaning
+        }
+
+        function GetAttitude(number) {
+            var meaning = "Attitude: "
+            if (number == 1) {
+                meaning = meaning + "1"
+            } else if (number == 2) {
+                meaning = meaning + "[2] Easy Going.  You tend to be an observer. Romantic. Intrigued by anything regarding psychic ability.  Experience deja vu.  Facination with dreams.  In touch with your intuition and the metaphysical side of life.  You have compassion for people.  You are fascinated by peoples stories.  You are seldom bored."
+            } else if (number == 3) {
+                meaning = meaning + "3"
+            } else if (number == 4) {
+                meaning = meaning + "4"
+            } else if (number == 5) {
+                meaning = meaning + "5"
+            } else if (number == 6) {
+                meaning = meaning + "6"
+            } else if (number == 7) {
+                meaning = meaning + "7"
+            } else if (number == 8) {
+                meaning = meaning + "8"
+            } else if (number == 9) {
+                meaning = meaning + "9"
+            } else if (number == 11) {
+                meaning = meaning + "11"
+            } else if (number == 22) {
+                meaning = meaning + "22"
+            } else if (number == 33) {
+                meaning = meaning + "33"
+            }
+            return meaning
+        }
+
         // Function to create the hour grid for a day
         function createHourGrid(attitude) {
             var grid = '<div class="hour-grid">';
@@ -1119,6 +1398,12 @@
             const cycleDay = (daysPassed % cycle) + modulo;
             return cycleDay;
         }
+
+        // getNumberMeaning(number){
+        //     const moonPhases = [
+        //         'Waning Crescent'
+        //     ]
+        // }
 
         function getMoonPhase(checkDateString) {
             const checkDate = new Date(checkDateString);
@@ -1209,7 +1494,7 @@
 
             //return moonPhaseIndex
             return imgTag;
-            
+
         }
 
         // Function to create and populate the calendar for a given month and year
@@ -1315,6 +1600,14 @@
 </head>
 
 <body>
+    <div class="mainCard">
+        <div id="lifePath" class="lifePath"></div>
+        <div id="soulNumber" class="soulNumber"></div>
+        <div id="personality" class="personality"></div>
+        <div id="power" class="power"></div>
+        <div id="birthday" class="birthday"></div>
+        <div id="attitude" class="attitude"></div>
+    </div>
     <form>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required value="Greg Whiteman">
@@ -1405,10 +1698,10 @@
         </div>
     </form>
     <br>
-    <div id="result"></div>
+    <div id="result" class="result"></div>
     <div class="right">
         <br>
-        <div id="calendarContainer"></div>
+        <div id="calendarContainer" class="calendarContainer"></div>
         <br>
         <select id="monthSelect" onchange="changeCalendarMonth()"></select>
         <select id="yearSelect" onchange="changeCalendarMonth()"></select>
