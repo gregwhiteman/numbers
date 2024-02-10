@@ -58,56 +58,88 @@
       border: 1px solid black;
     }
 
-    .Subject {
-      top: 33%;
-      left: 50%;
-      /*width: 10%;*/
-      height: 30%;
+    .Name{
+      top: -25%;
+      left: 0%;
+      width: 90%;
       display: flex;
       position: absolute;
-      border: 1px solid black;
-      background-color: white;
+      /*border: 1px solid black;*/
+      text-align: center;
     }
 
-    .Obstacles {
-      top: 33%;
+    .ImageLink{
+      top: 0%;
       left: 80%;
       width: 10%;
-      height: 30%;
       display: flex;
       position: absolute;
-      border: 1px solid black;
-      background-color: transparent;
+      /*border: 1px solid black;*/
+      text-align: center;
+    }
+
+    .Message{
+      top: 100%;
+      left: 0%;
+      display: flex;
+      position: absolute;
     }
 
     .Past {
-      top: 2%;
-      left: 65%;
-      width: 10%;
-      height: 30%;
+      top: 11%;
+      left: 40%;
+      height: 30vh;
       display: flex;
       position: absolute;
       border: 1px solid black;
       background-color: gold;
     }
 
-    .Present {
-      top: 33%;
-      left: 65%;
-      width: 10%;
-      height: 30%;
+    .Additional {
+      top: 11%;
+      left: 15%;
+      height: 30vh;
       display: flex;
       position: absolute;
-      color: white;
+      border: 1px solid black;
+      background-color: gold;
+    }
+
+    .Subject {
+      top: 44%;
+      left: 1%;
+      /*width: 10%;*/
+      height: 30vh;
+      display: flex;
+      position: absolute;
+      border: 1px solid black;
+      background-color: white;
+    }
+
+    .Present {
+      top: 44%;
+      left: 35%;
+      height: 30vh;
+      display: flex;
+      position: absolute;
       border: 1px solid black;
       background-color: rgb(36, 37, 36);
     }
 
-    .Future {
-      top: 64%;
+    .Obstacles {
+      top: 44%;
       left: 65%;
-      width: 10%;
-      height: 30%;
+      height: 30vh;
+      display: flex;
+      position: absolute;
+      border: 1px solid black;
+      background-color: transparent;
+    }
+
+    .Future {
+      top: 74%;
+      left: 65%;
+      height: 30vh;
       display: flex;
       position: absolute;
       border: 1px solid black;
@@ -115,10 +147,9 @@
     }
 
     .Advice {
-      top: 64%;
+      top: 74%;
       left: 50%;
-      width: 10%;
-      height: 30%;
+      height: 30vh;
       display: flex;
       position: absolute;
       border: 1px solid black;
@@ -126,25 +157,13 @@
     }
 
     .Outcome {
-      top: 64%;
+      top: 74%;
       left: 80%;
-      width: 10%;
-      height: 30%;
+      height: 30vh;
       display: flex;
       position: absolute;
       border: 1px solid black;
       background-color: blue;
-    }
-
-    .Additional {
-      top: 2%;
-      left: 50%;
-      width: 10%;
-      height: 30%;
-      display: flex;
-      position: absolute;
-      border: 1px solid black;
-      background-color: gold;
     }
 
     .negative {
@@ -170,45 +189,45 @@
   <!--<div id="message" class="message"></div>
   <div>
     <div id="showCards"></div>-->
-    <textarea id="message" rows="40" cols="70"></textarea>
+    <textarea id="message" class="Message" rows="40" cols="70"></textarea>
   <!--</div>-->
   <div id="Additional" class="Additional">
     <img id="AdditionalCard" src="RWS/Wands01.jpg">
     <a id="AdditionalLink" target="_blank" href="RWS/Wands01.jpg">*</a>
   </div>
-  <div id="Subject" class="Subject">Subject
+  <div id="Subject" class="Subject"><p class="Name">Subject</p>
     <img id="SubjectCard" src="RWS/Wands01.jpg">
-    <a id="SubjectLink" target="_blank" href="RWS/Wands01.jpg">*</a>
+    <a id="SubjectLink" class="ImageLink" target="_blank" href="RWS/Wands01.jpg">🔍</a>
   </div>
   <div class=""></div>
-  <div id="Obstacles" class="Obstacles">Obstacles
+  <div id="Obstacles" class="Obstacles"><p class="Name">Obstacles</p>
     <img id="ObstaclesCard" src="RWS/Wands01.jpg">
-    <a id="ObstaclesLink" target="_blank" href="RWS/Wands01.jpg">*</a>
+    <a id="ObstaclesLink" class="ImageLink" target="_blank" href="RWS/Wands01.jpg">🔍</a>
   </div>
   <div class=""></div>
-  <div id="Past" class="Past">Past
+  <div id="Past" class="Past"><p class="Name">Past</p>
     <img id="PastCard" src="RWS/Wands01.jpg">
-    <a id="PastLink" target="_blank" href="RWS/Wands01.jpg">*</a>
+    <a id="PastLink" class="ImageLink" target="_blank" href="RWS/Wands01.jpg">🔍</a>
   </div>
   <div class=""></div>
-  <div id="Present" class="Present">Present
+  <div id="Present" class="Present"><p class="Name">Present</p>
     <img id="PresentCard" src="RWS/Wands01.jpg">
-    <a id="PresentLink" target="_blank" href="RWS/Wands01.jpg">*</a>
+    <a id="PresentLink" class="ImageLink" target="_blank" href="RWS/Wands01.jpg">🔍</a>
   </div>
   <div class=""></div>
-  <div id="Future" class="Future">Future
+  <div id="Future" class="Future"><p class="Name">Future</p>
     <img id="FutureCard" src="RWS/Wands01.jpg">
-    <a id="FutureLink" target="_blank" href="RWS/Wands01.jpg">*</a>
+    <a id="FutureLink" class="ImageLink" target="_blank" href="RWS/Wands01.jpg">🔍</a>
   </div>
   <div class=""></div>
-  <div id="Advice" class="Advice">Advice
+  <div id="Advice" class="Advice"><p class="Name">Advice</p>
     <img id="AdviceCard" src="RWS/Wands01.jpg">
-    <a id="AdviceLink" target="_blank" href="RWS/Wands01.jpg">*</a>
+    <a id="AdviceLink" class="ImageLink" target="_blank" href="RWS/Wands01.jpg">🔍</a>
   </div>
   <div class=""></div>
-  <div id="Outcome" class="Outcome">Outcome
+  <div id="Outcome" class="Outcome"><p class="Name">Outcome</p>
     <img id="OutcomeCard" src="RWS/Wands01.jpg">
-    <a id="OutcomeLink" target="_blank" href="RWS/Wands01.jpg">*</a>
+    <a id="OutcomeLink" class="ImageLink" target="_blank" href="RWS/Wands01.jpg">🔍</a>
   </div>
 
   <div id="statement"></div>
