@@ -13,7 +13,7 @@
             position: absolute;
         }
 
-        .lifePath {
+        .soulNumber {
             top: 1%;
             left: 2%;
             width: 30%;
@@ -23,7 +23,7 @@
             overflow:scroll;
         }
 
-        .soulNumber {
+        .personality {
             top: 1%;
             left: 34.5%;
             width: 30%;
@@ -33,17 +33,7 @@
             overflow:scroll;
         }
 
-        .personality {
-            top: 1%;
-            left: 67%;
-            width: 30%;
-            height: 45%;
-            border: 1px solid yellow;
-            position: absolute;
-            overflow:scroll;
-        }
-
-        .power {
+        .birthday {
             top: 50%;
             left: 2%;
             width: 30%;
@@ -53,7 +43,17 @@
             overflow:scroll;
         }
 
-        .birthday {
+        .power {
+            top: 1%;
+            left: 67%;
+            width: 30%;
+            height: 45%;
+            border: 1px solid yellow;
+            position: absolute;
+            overflow:scroll;
+        }
+
+        .lifePath {
             top: 50%;
             left: 34.5%;
             width: 30%;
@@ -92,7 +92,7 @@
         .tarotCards {
             top: 30%;
             right: 1%;
-            width: 42%;
+            width: 45%;
             height: 57%;
             position: absolute;
             overflow: scroll;
@@ -104,7 +104,7 @@
         }
 
         .calendar {
-            top: 85%;
+            top: 87%;
             left: 2%;
             width: 100%;
             height: 100%;
@@ -1232,7 +1232,7 @@
             } else if (number == 8) {
                 meaning = meaning + "8"
             } else if (number == 9) {
-                meaning = meaning + "9"
+                meaning = meaning + "[9] The teacher, counselor, therapists. doctor, nurse, social worker, or creative fields.  You are here to make a positive difference in the world.  You are Selfless.  You are ruled by your determination.  You follow what you believe in.  You pursue what you believe in with tremendous ambition and drive.  People will always be jealous and resentful toward you.  People will try to sabatage your plans.  Some people will see you as Condescending and you should know that before you speak.  It is really upsetting for you to work hard for something and it not come to fruition.  You have an authentic regard for humanity.  Your goals serve others.  When you fail you feel like you failed the world.  You usually have issues with your original family.  You may feel unloved or abandoned by your mother or father.  You may feel completly responsible for your parents.  Its hard for you give up the attachment to your original family.  You desire to be the perfect parent, but there is no such thing.  You do so much and take such good care of everybodys business that when they are in trouble people look at you and think Oh, they are so strong they don't need my help.  Your needs are not easily read by others.  You have to ask.  You don't need to be the center of attention, but people put them there anyway.  People walk up to you all the time in public.  You are not rude to those under your authority.  Whatever you set your mind to you will pull it off.  Your very hard on yourself.  You can be intimidating.  You really don't compete with anyone.  Its your job to put others at ease.  You are accused of being patronizing.  When you do something good or bad people follow.  "
             } else if (number == 11) {
                 meaning = meaning + "11"
             } else if (number == 22) {
@@ -1260,7 +1260,7 @@
             } else if (number == 7) {
                 meaning = meaning + "7"
             } else if (number == 8) {
-                meaning = meaning + "8"
+                meaning = meaning + "[8] Fulfilled when you have financial freedom.  job security, and a nice home.  When I am in charge and people do as I say.  When I speak the truth and see justice in a difficult situation."
             } else if (number == 9) {
                 meaning = meaning + "9"
             } else if (number == 11) {
@@ -1274,7 +1274,7 @@
         }
 
         function GetPersonality(number) {
-            var meaning = "Personality: "
+            var meaning = "Personality (How you are perceived): "
             if (number == 1) {
                 meaning = meaning + "1"
             } else if (number == 2) {
@@ -1288,7 +1288,7 @@
             } else if (number == 6) {
                 meaning = meaning + "6"
             } else if (number == 7) {
-                meaning = meaning + "7"
+                meaning = meaning + "[7] Appears as someone who needs privacy.  Keep to yourself.  Acute observer.  When you share knowledge to tend to speak with authority and have a good memory for detail.  People think your silence means you are not listening, but you are always in tune."
             } else if (number == 8) {
                 meaning = meaning + "8"
             } else if (number == 9) {
@@ -1304,7 +1304,7 @@
         }
 
         function GetPowerNumber(number) {
-            var meaning = "Power: "
+            var meaning = "Power (Your strength): "
             if (number == 1) {
                 meaning = meaning + "1"
             } else if (number == 2) {
@@ -1316,7 +1316,7 @@
             } else if (number == 5) {
                 meaning = meaning + "5"
             } else if (number == 6) {
-                meaning = meaning + "6"
+                meaning = meaning + "[6] Attractive in a way that goes beyond the physical.  You present yourself well.  There is magnatism in you.  You want to be in charge, and your air of authority makes it easy for others to follow you.  Damage control is your specialty and sometimes you get nervous when things go to smoothly.  Needs to relax and loosen up and enjoy life."
             } else if (number == 7) {
                 meaning = meaning + "7"
             } else if (number == 8) {
@@ -1334,11 +1334,11 @@
         }
 
         function GetBirthday(number) {
-            var meaning = "Birthday: "
+            var meaning = "Birthday (How others see you): "
             if (number == 1) {
                 meaning = meaning + "1"
             } else if (number == 2) {
-                meaning = meaning + "2 - "
+                meaning = meaning + "2"
             } else if (number == 3) {
                 meaning = meaning + "3"
             } else if (number == 4) {
@@ -1348,7 +1348,7 @@
             } else if (number == 6) {
                 meaning = meaning + "6"
             } else if (number == 7) {
-                meaning = meaning + "7"
+                meaning = meaning + "[7] You are someone that nowone completely knows, because you are trying to figure out who you are yourself.  You are an observer and spiritual."
             } else if (number == 8) {
                 meaning = meaning + "8"
             } else if (number == 9) {
@@ -1624,15 +1624,18 @@
 </head>
 
 <body>
+    <a href="cards.html">Cards</a>
     <div class="mainCard">
-        <div id="lifePath" class="lifePath"></div>
         <div id="soulNumber" class="soulNumber"></div>
         <div id="personality" class="personality"></div>
         <div id="power" class="power"></div>
         <div id="birthday" class="birthday"></div>
         <div id="attitude" class="attitude"></div>
+        <div id="lifePath" class="lifePath"></div>
     </div>
+    
     <form>
+        
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required value="Greg Whiteman">
         <br><br>
