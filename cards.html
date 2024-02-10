@@ -13,7 +13,7 @@
       font-size: 5vw;
     }
 
-    .subject {
+    .subjectInput {
       top: 2%;
       left: 23%;
       width: 68%;
@@ -70,9 +70,9 @@
     }
 
     .message {
-      top: 10%;
+      top: 100%;
       left: 2%;
-      width: 45%;
+      width: 97%;
       display: flex;
       position: absolute;
       border: 1px solid black;
@@ -206,22 +206,19 @@
 </head>
 
 <body>
-  <label class="subjectLabel">Subject: </label><input id="subject" class="subject" type="text">
+  <label class="subjectLabel">Subject: </label><input id="subjectInput" class="subjectInput" type="text">
   <label class="questionLabel">Question: </label><input id="question" class="question" type="text">
   <input type="button" class="dealButton" onclick="DealCards()" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deal">
   <input type="button" class="additionalButton" onclick="Additional()" value="&nbsp;New Card">
   <input type="button" class="resetButton" onclick="window.location.reload()" value="&nbsp;&nbsp;&nbsp;&nbsp;Reset">
   <br><br>
-  <!--<div id="message" class="message"></div>
-  <div>
-    <div id="showCards"></div>-->
-    <textarea id="message" class="Message" rows="40" cols="30"></textarea>
-  <!--</div>-->
+  <div id="message" class="message"></div>
+  <!--<textarea id="message" class="Message" rows="40" cols="30"></textarea>-->
   <div id="Additional" class="Additional">
     <img id="AdditionalCard" src="RWS/Wands01.jpg">
     <a id="AdditionalLink" class="ImageLink" target="_blank" href="RWS/Wands01.jpg">🔍</a>
   </div>
-  <div id="Subject" class="Subject"><p class="Name">Subject</p>
+  <div class="Subject"><p class="Name">Subject</p>
     <img id="SubjectCard" src="RWS/Wands01.jpg">
     <a id="SubjectLink" class="ImageLink" target="_blank" href="RWS/Wands01.jpg">🔍</a>
   </div>
@@ -1293,9 +1290,9 @@ cards.push(card);
       Shuffle()
 
       var totalCards = 78
-      var subjectInput = document.getElementById("subject")
+      var subjectInput = document.getElementById("subjectInput")
       var questionInput = document.getElementById("question")
-      var message = subjectInput.value + " " + questionInput.value + "\n"
+      var message = subjectInput.value + " " + questionInput.value + "<br>"
       var cardImages = ""
       for (var i = 0; i < 7; i++) {
         var rando = Math.floor(Math.random() * totalCards);
@@ -1304,37 +1301,37 @@ cards.push(card);
         if (i == 0) {
           var image = document.getElementById("SubjectCard")
           var link = document.getElementById("SubjectLink")
-          message = message + "**[The Subject]***********************\n"
+          message = message + "**[The Subject]***********************<br>"
         }
         if (i == 1) {
           var image = document.getElementById("ObstaclesCard")
           var link = document.getElementById("ObstaclesLink")
-          message = message + "**[Obstacles]***********************\n"
+          message = message + "<br><br>**[Obstacles]***********************<br>"
         }
         if (i == 2) {
           var image = document.getElementById("PastCard")
           var link = document.getElementById("PastLink")
-          message = message + "[Past]***********************\n"
+          message = message + "<br><br>**[Past]***********************<br>"
         }
         if (i == 3) {
           var image = document.getElementById("PresentCard")
           var link = document.getElementById("PresentLink")
-          message = message + "**[Present]***********************\n"
+          message = message + "<br><br>**[Present]***********************<br>"
         }
         if (i == 4) {
           var image = document.getElementById("FutureCard")
           var link = document.getElementById("FutureLink")
-          message = message + "**[Future]***********************\n"
+          message = message + "<br><br>**[Future]***********************<br>"
         }
         if (i == 5) {
           var image = document.getElementById("AdviceCard")
           var link = document.getElementById("AdviceLink")
-          message = message + "**[Advice]***********************\n"
+          message = message + "<br><br>**[Advice]***********************<br>"
         }
         if (i == 6) {
           var image = document.getElementById("OutcomeCard")
           var link = document.getElementById("OutcomeLink")
-          message = message + "**[Outcome]***********************\n"
+          message = message + "<br><br>**[Outcome]***********************<br>"
         }
         
         var positiveNegative = Math.floor(Math.random() * 2);
@@ -1368,15 +1365,15 @@ cards.push(card);
         //for (j = 0; j < cards[rando].personality[positiveNegative].length; j++) {
         //  message = message + " " + cards[rando].personality[positiveNegative][j] + "\n"
         //}
-        message = message + " " + cards[rando].meaning + "\n"
-        message = message + " " + cards[rando].element + "\n"
-        message = message + " " + cards[rando].yesNo + "\n"
-        message = message + " " + cards[rando].significant + "\n"
-        message = message + " " + cards[rando].zodiac + "\n"
-        message = message + " " + cards[rando].months + "\n"
+        message = message + " " + cards[rando].meaning + "<br>"
+        message = message + " " + cards[rando].element + "<br>"
+        message = message + " " + cards[rando].yesNo + "<br>"
+        message = message + " " + cards[rando].significant + "<br>"
+        message = message + " " + cards[rando].zodiac + "<br>"
+        message = message + " " + cards[rando].months + "<br>"
 
         if(i == 0){
-          //statement = "[Subject]"
+          statement = "<br>"
         }
         if(i == 1){
           statement = statement + " the Influences/Obstacles"
@@ -1396,18 +1393,19 @@ cards.push(card);
         if(i == 6){
           statement = statement + " The outcome for"
         }
-        statement = statement + " " + cards[rando].statement + "\n"
+        statement = statement + " " + cards[rando].statement + "<br>"
 
         //message = message + "</div>"
 
         cards.splice(rando, 1);
         totalCards--
       }
-      var subjectInput = document.getElementById('subject')
+      var subjectInput = document.getElementById('subjectInput')
       statement = statement.replaceAll("[Subject]", subjectInput.value);
+      console.log("subjectInput",subjectInput)
 
       var messageInput = document.getElementById('message')
-      messageInput.innerHTML = message + "\n\n" + statement
+      messageInput.innerHTML = message + "<br><br>" + statement
 
       var showCards = document.getElementById('showCards')
       showCards.innerHTML = cardImages
@@ -1420,17 +1418,17 @@ cards.push(card);
       console.log("card ", cards[rando])
       var image = document.getElementById("AdditionalCard")
       var link = document.getElementById("AdditionalLink")
-      message = message + "**[Additional]***************************************\n"
+      message = message + "<br><br>**[Additional]***************************************<br>"
       image.src = cards[rando].image
       link.href = cards[rando].image
-      message = message + " " + cards[rando].meaning + "\n"
-      message = message + " " + cards[rando].element + "\n"
-      message = message + " " + cards[rando].yesNo + "\n"
-      message = message + " " + cards[rando].significant + "\n"
-      message = message + " " + cards[rando].zodiac + "\n"
-      message = message + " " + cards[rando].months + "\n"
+      message = message + " " + cards[rando].meaning + "<br>"
+      message = message + " " + cards[rando].element + "<br>"
+      message = message + " " + cards[rando].yesNo + "<br>"
+      message = message + " " + cards[rando].significant + "<br>"
+      message = message + " " + cards[rando].zodiac + "<br>"
+      message = message + " " + cards[rando].months + "<br>"
       var messageInput = document.getElementById('message')
-      messageInput.innerHTML = message + "\n\n" + messageInput.innerHTML
+      messageInput.innerHTML = message + "<br><br>" + messageInput.innerHTML
     }
   
   </script>
