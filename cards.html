@@ -72,8 +72,8 @@
     .message {
       top: 100%;
       left: 2%;
-      width: 97%;
-      display: flex;
+      width: 73%;
+      /*display: flex;*/
       position: absolute;
       border: 1px solid black;
       font-size: 5vw;
@@ -202,6 +202,52 @@
     .card {
       width: 15%;
     }
+
+    #statement{
+      width: 75%;
+    }
+
+    #SubjectCardStatement{
+      top: 100%;
+      left: 75%;
+      position: absolute;
+    }
+
+    #ObstaclesCardStatement{
+      top: 130%;
+      left: 75%;
+      position: absolute;
+    }
+
+    #PastCardStatement{
+      top: 160%;
+      left: 75%;
+      position: absolute;
+    }
+
+    #PresentCardStatement{
+      top: 190%;
+      left: 75%;
+      position: absolute;
+    }
+
+    #FutureCardStatement{
+      top: 220%;
+      left: 75%;
+      position: absolute;
+    }
+
+    #AdviceCardStatement{
+      top: 250%;
+      left: 75%;
+      position: absolute;
+    }
+
+    #OutcomeCardStatement{
+      top: 280%;
+      left: 75%;
+      position: absolute;
+    }
   </style>
 </head>
 
@@ -260,6 +306,13 @@
     <a id="OutcomeLink" class="ImageLink" target="_blank" href="RWS/Wands01.jpg">🔍</a>
   </div>
 
+  <img id="SubjectCardStatement" src="RWS/Wands01.jpg">
+  <img id="ObstaclesCardStatement" src="RWS/Wands01.jpg">
+  <img id="PastCardStatement" src="RWS/Wands01.jpg">
+  <img id="PresentCardStatement" src="RWS/Wands01.jpg">
+  <img id="FutureCardStatement" src="RWS/Wands01.jpg">
+  <img id="AdviceCardStatement" src="RWS/Wands01.jpg">
+  <img id="OutcomeCardStatement" src="RWS/Wands01.jpg">
   <div id="statement"></div>
 
   <script type="text/javascript">
@@ -1307,38 +1360,45 @@
         //message = message + "<div>"
         if (i == 0) {
           var image = document.getElementById("SubjectCard")
+          var imageStatement = document.getElementById("SubjectCardStatement")
           var link = document.getElementById("SubjectLink")
-          message = message + "**[The Subject]***********************<br>"
+          message = message + "**[The Subject]***********<br>"
         }
         if (i == 1) {
           var image = document.getElementById("ObstaclesCard")
+          var imageStatement = document.getElementById("ObstaclesCardStatement")
           var link = document.getElementById("ObstaclesLink")
-          message = message + "<br>**[Influences]***********************<br>"
+          message = message + "<br>**[Influences]***********<br>"
         }
         if (i == 2) {
           var image = document.getElementById("PastCard")
+          var imageStatement = document.getElementById("PastCardStatement")
           var link = document.getElementById("PastLink")
-          message = message + "<br>**[Past]***********************<br>"
+          message = message + "<br>**[Past]***********<br>"
         }
         if (i == 3) {
           var image = document.getElementById("PresentCard")
+          var imageStatement = document.getElementById("PresentCardStatement")
           var link = document.getElementById("PresentLink")
-          message = message + "<br>**[Present]***********************<br>"
+          message = message + "<br>**[Present]***********<br>"
         }
         if (i == 4) {
           var image = document.getElementById("FutureCard")
+          var imageStatement = document.getElementById("FutureCardStatement")
           var link = document.getElementById("FutureLink")
-          message = message + "<br>**[Future]***********************<br>"
+          message = message + "<br>**[Future]***********<br>"
         }
         if (i == 5) {
           var image = document.getElementById("AdviceCard")
+          var imageStatement = document.getElementById("AdviceCardStatement")
           var link = document.getElementById("AdviceLink")
-          message = message + "<br>**[Advice]***********************<br>"
+          message = message + "<br>**[Advice]***********<br>"
         }
         if (i == 6) {
           var image = document.getElementById("OutcomeCard")
+          var imageStatement = document.getElementById("OutcomeCardStatement")
           var link = document.getElementById("OutcomeLink")
-          message = message + "<br>**[Outcome]***********************<br>"
+          message = message + "<br>**[Outcome]***********<br>"
         }
 
         var positiveNegative = Math.floor(Math.random() * 2);
@@ -1346,6 +1406,7 @@
         console.log(rando)
         console.log(cards)
         image.src = cards[rando].image
+        imageStatement.src = cards[rando].image
         link.href = cards[rando].image
 
         if (positiveNegative == 1) {
