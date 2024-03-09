@@ -151,7 +151,7 @@
       background-color: rgb(36, 37, 36);
     }
 
-    .Obstacles {
+    .Influences {
       top: 47%;
       left: 74%;
       height: 21vh;
@@ -214,7 +214,7 @@
       position: absolute;
     }
 
-    #ObstaclesCardStatement{
+    #InfluencesCardStatement{
       top: 140%;
       left: 75%;
       width: 30%;
@@ -277,10 +277,10 @@
     <a id="SubjectLink" class="ImageLink" target="_blank" href="RWS/Wands01.jpg">🔍</a>
   </div>
   <div class=""></div>
-  <div id="Obstacles" class="Obstacles">
-    <p class="Name">Obstacles</p>
-    <img id="ObstaclesCard" src="RWS/Wands01.jpg">
-    <a id="ObstaclesLink" class="ImageLink" target="_blank" href="RWS/Wands01.jpg">🔍</a>
+  <div id="Influences" class="Influences">
+    <p class="Name">Influences</p>
+    <img id="InfluencesCard" src="RWS/Wands01.jpg">
+    <a id="InfluencesLink" class="ImageLink" target="_blank" href="RWS/Wands01.jpg">🔍</a>
   </div>
   <div class=""></div>
   <div id="Past" class="Past">
@@ -314,7 +314,7 @@
   </div>
 
   <img id="SubjectCardStatement" src="RWS/Wands01.jpg">
-  <img id="ObstaclesCardStatement" src="RWS/Wands01.jpg">
+  <img id="InfluencesCardStatement" src="RWS/Wands01.jpg">
   <img id="PastCardStatement" src="RWS/Wands01.jpg">
   <img id="PresentCardStatement" src="RWS/Wands01.jpg">
   <img id="FutureCardStatement" src="RWS/Wands01.jpg">
@@ -725,7 +725,7 @@
         significant: ["Wounded Warrior", "Guardedness", "Perseverance"],
         zodiac: "Moon",
         months: "November 22 - December 21",
-        //statement: "[Subject] has faced numerous challenges and obstacles, with a deep sense of resilience and determination to continue pushing forward."
+        //statement: "[Subject] has faced numerous challenges and Influences, with a deep sense of resilience and determination to continue pushing forward."
       }
       cards.push(card);
 
@@ -1372,9 +1372,9 @@
           message = message + "**[The Subject]***********<br>"
         }
         if (i == 1) {
-          var image = document.getElementById("ObstaclesCard")
-          var imageStatement = document.getElementById("ObstaclesCardStatement")
-          var link = document.getElementById("ObstaclesLink")
+          var image = document.getElementById("InfluencesCard")
+          var imageStatement = document.getElementById("InfluencesCardStatement")
+          var link = document.getElementById("InfluencesLink")
           message = message + "<br>**[Influences]***********<br>"
         }
         if (i == 2) {
@@ -1451,7 +1451,7 @@
         // statement = "<br>"
         //}
         //if(i == 1){
-        //  statement = statement + " the Influences/Obstacles"
+        //  statement = statement + " the Influences/Influences"
         //}
         //if(i == 2){
         //  statement = statement + " In the past"
