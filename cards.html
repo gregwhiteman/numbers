@@ -72,7 +72,7 @@
     .message {
       top: 100%;
       left: 2%;
-      width: 73%;
+      width: 95%;
       /*display: flex;*/
       position: absolute;
       border: 1px solid black;
@@ -203,9 +203,14 @@
       width: 15%;
     }
 
+    .messageImage{
+      width: 35%;
+    }
+
     #statement{
       width: 75%;
     }
+    /*
 
     #SubjectCardStatement{
       top: 100%;
@@ -255,6 +260,7 @@
       width: 30%;
       position: absolute;
     }
+    */
   </style>
 </head>
 
@@ -313,6 +319,7 @@
     <a id="OutcomeLink" class="ImageLink" target="_blank" href="RWS/Wands01.jpg">🔍</a>
   </div>
 
+  <!--
   <img id="SubjectCardStatement" src="RWS/Wands01.jpg">
   <img id="InfluencesCardStatement" src="RWS/Wands01.jpg">
   <img id="PastCardStatement" src="RWS/Wands01.jpg">
@@ -320,6 +327,7 @@
   <img id="FutureCardStatement" src="RWS/Wands01.jpg">
   <img id="AdviceCardStatement" src="RWS/Wands01.jpg">
   <img id="OutcomeCardStatement" src="RWS/Wands01.jpg">
+-->
   <div id="statement"></div>
 
   <script type="text/javascript">
@@ -1367,43 +1375,43 @@
         //message = message + "<div>"
         if (i == 0) {
           var image = document.getElementById("SubjectCard")
-          var imageStatement = document.getElementById("SubjectCardStatement")
+          //var imageStatement = document.getElementById("SubjectCardStatement")
           var link = document.getElementById("SubjectLink")
           message = message + "**[The Subject]***********<br>"
         }
         if (i == 1) {
           var image = document.getElementById("InfluencesCard")
-          var imageStatement = document.getElementById("InfluencesCardStatement")
+          //var imageStatement = document.getElementById("InfluencesCardStatement")
           var link = document.getElementById("InfluencesLink")
           message = message + "<br>**[Influences]***********<br>"
         }
         if (i == 2) {
           var image = document.getElementById("PastCard")
-          var imageStatement = document.getElementById("PastCardStatement")
+          //var imageStatement = document.getElementById("PastCardStatement")
           var link = document.getElementById("PastLink")
           message = message + "<br>**[Past]***********<br>"
         }
         if (i == 3) {
           var image = document.getElementById("PresentCard")
-          var imageStatement = document.getElementById("PresentCardStatement")
+          //var imageStatement = document.getElementById("PresentCardStatement")
           var link = document.getElementById("PresentLink")
           message = message + "<br>**[Present]***********<br>"
         }
         if (i == 4) {
           var image = document.getElementById("FutureCard")
-          var imageStatement = document.getElementById("FutureCardStatement")
+          //var imageStatement = document.getElementById("FutureCardStatement")
           var link = document.getElementById("FutureLink")
           message = message + "<br>**[Future]***********<br>"
         }
         if (i == 5) {
           var image = document.getElementById("AdviceCard")
-          var imageStatement = document.getElementById("AdviceCardStatement")
+          //var imageStatement = document.getElementById("AdviceCardStatement")
           var link = document.getElementById("AdviceLink")
           message = message + "<br>**[Advice]***********<br>"
         }
         if (i == 6) {
           var image = document.getElementById("OutcomeCard")
-          var imageStatement = document.getElementById("OutcomeCardStatement")
+          //var imageStatement = document.getElementById("OutcomeCardStatement")
           var link = document.getElementById("OutcomeLink")
           message = message + "<br>**[Outcome]***********<br>"
         }
@@ -1413,7 +1421,7 @@
         console.log(rando)
         console.log(cards)
         image.src = cards[rando].image
-        imageStatement.src = cards[rando].image
+        //imageStatement.src = cards[rando].image
         link.href = cards[rando].image
 
         if (positiveNegative == 1) {
@@ -1440,6 +1448,7 @@
         //for (j = 0; j < cards[rando].personality[positiveNegative].length; j++) {
         //  message = message + " " + cards[rando].personality[positiveNegative][j] + "\n"
         //}
+        message = message + "<br> <img class='messageImage' src='" + cards[rando].image + "' ><br>"
         message = message + "<br> " + cards[rando].yesNo + "<br>"
         message = message + " " + cards[rando].meaning + "<br>"
         message = message + " " + cards[rando].element + "<br>"
@@ -1500,6 +1509,7 @@
         image.src = cards[rando].image
         link.href = cards[rando].image
         message = message + "(" + cards[rando].name + ") \n"//("+plusNeg+")\n"
+        message = message + "<br> <img class='messageImage' src='" + cards[rando].image + "' ><br>"
         message = message + "<br> " + cards[rando].yesNo + "<br>"
         message = message + " " + cards[rando].meaning + "<br>"
         message = message + " " + cards[rando].element + "<br>"
